@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    box-sizing: border-box;
+
+    background: radial-gradient(circle at top left, #6dd5fa, #2980b9, #6a11cb);
+    background-size: 300% 300%;
+    animation: bgMove 8s infinite alternate;
+
+    font-family: "Comic Sans MS", "Chalkboard SE", "Fredoka One", cursive;
+    color: #fff;
+}
+h1 {
+    font-size: 56px;
+    text-align: center;
+    color: #ffe600;
+    text-shadow:
+        -3px -3px 0 #ff4081,
+         3px -3px 0 #00e5ff,
+        -3px  3px 0 #76ff03,
+         3px  3px 0 #ff9100;
+    margin-bottom: 10px;
+}
+button {
+    font-family: inherit;
+    font-size: 18px;
+    padding: 12px 28px;
+    border: 4px solid #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(145deg, #ff4081, #ff9100);
+    box-shadow: 0 6px 0 #c2185b;
+    transition: all 0.15s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #c2185b;
+}
+
+.game-header h1 {
+    font-size: 36px;
+    background: linear-gradient(90deg, #00ff88, #00a8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.score-board {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.score-item {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.game-container {
+    position: relative;
+}
+
+canvas {
+    width: 88vmin;
+    height: 88vmin;
+    max-width: 560px;
+    max-height: 560px;
+
+    border-radius: 18px;
+    border: 5px dashed rgba(0, 0, 0, 0.25);
+    background: #ffffff;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.controls {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.start-btn { background: #00ff88; color: #000; }
+.pause-btn { background: #ffa502; color: #fff; }
+.restart-btn { background: #00a8ff; color: #fff; }
+
+.mobile-controls {
+    margin-top: 15px;
+    display: none;
+}
+
+
+.d-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 5px;
+}
+
+.d-pad button {
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    touch-action: manipulation; /* ✅ 防止滑动/缩放 */
+}
+
+.up { grid-column: 2; grid-row: 1; }
+.left { grid-column: 1; grid-row: 2; }
+.right { grid-column: 3; grid-row: 2; }
+.down { grid-column: 2; grid-row: 3; }
+
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: grid;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-header">
+    <h1>🐍 贪吃蛇游戏网页</h1>
+    <div class="score-board">
+        <div class="score-item">得分：<span id="score">0</span></div>
+        <div class="score-item">最高分：<span id="highScore">0</span></div>
+        <div class="score-item">等级：<span id="level">1</span></div>
+    </div>
+</div>
+
+<div class="game-container">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div class="overlay" id="startScreen">
+        <h2>🎮 贪吃蛇</h2>
+        <p>方向键 / WASD 控制</p>
+        <button class="btn start-btn" onclick="startGame()">开始游戏</button>
+    </div>
+
+    <div class="overlay hidden" id="pauseScreen">
+        <h2>⏸️ 游戏暂停</h2>
+        <button class="btn start-btn" onclick="resumeGame()">继续游戏</button>
+    </div>
+
+    <div class="overlay hidden game-over" id="gameOverScreen">
+        <h2>游戏结束</h2>
+        <p>得分：<span id="finalScore">0</span></p>
+        <button class="btn restart-btn" onclick="restartGame()">重新开始</button>
+    </div>
+</div>
+
+<div class="controls">
+    <button class="btn start-btn" onclick="startGame()">开始</button>
+    <button class="btn pause-btn" onclick="togglePause()">暂停</button>
+    <button class="btn restart-btn" onclick="restartGame()">重开</button>
+</div>
+
+<div class="mobile-controls">
+    <div class="d-pad">
+    <button class="up" onclick="setDirection('up')">↑</button>
+<button class="left" onclick="setDirection('left')">←</button>
+<button class="center"></button>
+<button class="right" onclick="setDirection('right')">→</button>
+<button class="down" onclick="setDirection('down')">↓</button>
+    </div>
+</div>
+
+<audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="dieSound">
+    <source src="die.mp3" type="audio/mpeg">
+</audio>
+
+<script src="game.js"></script>
+</body>
+</html>
